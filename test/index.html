@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript SVG Editor</title>
+		<script type="text/javascript" src="../js-svgeditor/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery-ui-1.8.9.custom.min.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery.svg.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery.svgdom.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery.ui.svgeditor_create.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery.ui.svgeditor_delete.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery.ui.svgeditor_update.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery.ui.svgeditor_view.js"></script>
+		<script type="text/javascript" src="../js-svgeditor/jquery.ui.svgeditor_translate.js"></script>
+		<script type="text/javascript">                                         
+   			$(document).ready(function() {
+   				$(".layout").svgeditor_create({'shape':'rect'});
+   				$("#svg_viewbox").svgeditor_view();  
+   				$("#svg_viewbox").svgeditor_translate({'class':'layout'});   				
+   				$("input[name='shape']:radio").change(function() {
+					$(".layout").svgeditor_create('option', 'shape', $(this).val())
+			    });
+			    $('#properties_selection input').change(function(){
+			    	$(".layout").svgeditor_create('option', $(this).attr('id'), $(this).val())
+			    })
+			    $("input[name='action']:radio").change(function(){
+			    	switch ($(this).val()) {
+			    		case "create":
+			    			$(".layout").svgeditor_delete('destroy')
+			    			$(".layout").svgeditor_update('destroy')
+			    			$(".layout").svgeditor_create()
+			    			break;
+			    		case "update":
+			    			$(".layout").svgeditor_delete('destroy')
+			    			$(".layout").svgeditor_create('destroy')
+			    			$(".layout").svgeditor_update()
+			    			break;
+			    		case "delete":
+			    			$(".layout").svgeditor_create('destroy')
+			    			$(".layout").svgeditor_update('destroy')
+			    			$(".layout").svgeditor_delete()
+			    			break;
+			    		default:
+			    			break;
+			    	}	    	
+			    })
+   			});
+   		</script>  
+   		<link rel="stylesheet" type="text/css" href="../js-svgeditor/jquery.ui.svgeditor.css" /> 
+   		<style type="text/css">
+			body {
+				font-family:'Arial'	
+			}
+		</style>	 
+	</head>
+	<body>
+
+		<svg viewBox="0 0 1945 1000" height="1000" width="1945" id="svg_viewbox">
+			<svg x="0" y="0" width="645" height="1000" class="layout">	
+			</svg>
+			<svg x="645" y="0" width="1000" height="1000" class="layout">
+			</svg>
+			<svg x="1645" y="0" width="300" height="1000" class="layout">
+			</svg>
+		</svg>
+		
+		<ul id="tool_selection" style="display:inline;" >
+			<li><input type="radio" name="action" value="create" id="tool_create" checked='checked'>create</li>
+			<li><input type="radio" name="action" value="update" id="tool_update">update</li>
+			<li><input type="radio" name="action" value="delete" id="tool_delete">delete</li>
+		</ul>
+		
+		<ul style="display:inline;" id="shape_selection">
+			<li><input type="radio" name="shape" value="rect" checked='checked'>Rectangle</li>
+			<li><input type="radio" name="shape" value="circle">Circle</li>
+			<li><input type="radio" name="shape" value="ellipse">Ellipse</li>
+			<li><input type="radio" name="shape" value="polygon">Polygon</li>
+			<li><input type="radio" name="shape" value="path">Path</li>			
+		</ul>	
+		
+		<ul style="display:inline;" id="properties_selection">
+			<li>fill <input type="input" id="fill" value="#993399" /> <input type="input" id="opacity" value="0.2" /> </li>
+			<li>stroke <input type="input" id="stroke" value="#993399" /> <input type="input" id="stroke-opacity" value="0.2" /></li>
+			<li>stroke width <input type="text" id="stroke-width" value="2" size="2"/></li>
+		</ul>	
+		
+	</body>
+</html>
