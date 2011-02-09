@@ -12,7 +12,6 @@
 				var self = this;
 				this.element
 				.bind('mousedown.'+this.widgetName, function(evt) {
-					console.log('mousedown')
 					return self._mouseDown(evt);
 				})
 				.bind('dragstart.'+this.widgetName, function(evt) {
@@ -149,6 +148,7 @@
 						break;					
 				}
 				this.drawing = Boolean();
+				this._trigger('.create_shape', evt, {'shape':this.shape})
 				//global_events.trigger('create_shape', $(shape))		
 			}	
 		},

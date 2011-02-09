@@ -83,6 +83,7 @@
     	},
     	_mouseUp: function(evt){
     		this.action = Boolean()
+    		this._trigger('.update_shape', evt, {'shape':this.stateTarget})
     	}, 
     	_dragStart: function(evt){
     		return false;	

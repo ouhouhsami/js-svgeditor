@@ -14,6 +14,18 @@
 		<script type="text/javascript">                                         
    			$(document).ready(function() {
    				$(".layout").svgeditor_create({'shape':'rect'});
+   				
+   				$(".layout").bind('svgeditor_create.create_shape', function(evt, ui){
+   					console.log('created')
+   					console.log(ui.shape)
+   				})
+   				$(".layout").bind('svgeditor_delete.delete_shape', function(evt, ui){
+   					console.log(ui.shape)
+   				})
+   				$(".layout").bind('svgeditor_update.update_shape', function(evt, ui){
+   					console.log(ui.shape)
+   				})
+   				   				
    				$("#svg_viewbox").svgeditor_view();  
    				$("#svg_viewbox").svgeditor_translate({'class':'layout'});   				
    				$("input[name='shape']:radio").change(function() {
