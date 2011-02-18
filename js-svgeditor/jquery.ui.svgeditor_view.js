@@ -4,11 +4,16 @@
     	},
     	_init: function(){
     		var self = this;
+    		
+    		
+    		
     		this.zoom_in = $('<input type="button" value="+"/>')
     		this.zoom_init = $('<input type="button" value="100%"/>')
     		this.zoom_out = $('<input type="button" value="-"/>')
-    		this.zoom_value = $('<input type="text" value="100" size="3" />')
+    		this.zoom_value = $('<input type="text" value="100" />')
     		this.zoom = 1
+
+
     		
     		$(this.element).wrap('<div class="view_container" />')    		
     		$(this.element).parent().before('<div class="view_controls_container" />')
@@ -26,8 +31,7 @@
     		$(this.element).wrapInner(this.scale_node)
     		
     		this.scale = this.element.children('.scale').first()
-    		
-    		self = this
+
     		this.zoom_in.click(function(evt){
     			self.zoom = self.zoom + 0.1
     			self._zoom()

@@ -1,24 +1,24 @@
 
-/*
+
 .view_container {
-	border:1px solid #888; 
+	/*border:1px solid #888; */
 	padding:0px; 
 	margin:0px;
 	padding-bottom:-6px;
 	overflow:hidden;
 }
 .view_controls_container {
-	border:1px solid #888;	
+	/*border:1px solid #888;	*/
 }
 .translate_controls_container {
-	border:1px solid #888;		
+	/*border:1px solid #888;*/		
 }
 
 .view_controls_container input, .translate_controls_container input {
-	border:1px solid #888;	
+	/*border:1px solid #888;	*/
 }
 .translate_controls_container input.current {
-	background-color:Yellow;	
+	/*background-color:Yellow;	*/
 }
-*/
+
 
