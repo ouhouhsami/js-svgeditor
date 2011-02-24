@@ -7,9 +7,9 @@
     		
     		
     		
-    		this.zoom_in = $('<input type="button" value="+"/>')
+    		this.zoom_in = $('<input type="button" class="zoom_in_bt" value="+"/>')
     		this.zoom_init = $('<input type="button" value="100%"/>')
-    		this.zoom_out = $('<input type="button" value="-"/>')
+    		this.zoom_out = $('<input type="button"  class="zoom_out_bt" value="-"/>')
     		this.zoom_value = $('<input type="text" value="100" />')
     		this.zoom = 1
 

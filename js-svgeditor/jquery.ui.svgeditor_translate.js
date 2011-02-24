@@ -22,7 +22,7 @@
     		this.translate_nav = $('<div class="translate_controls_container"></div>').insertAfter($(this.element).parent())
     		
     		// controls creation
-    		this.prev_button = $('<input type="button" value="<"/>').appendTo(this.translate_nav)
+    		this.prev_button = $('<input type="button" class="prev_bt" value="<"/>').appendTo(this.translate_nav)
     		
     		this.items.each(function(i){
     			this.button = $('<input type="button" class="page_button" value="'+i+'" />').appendTo(self.translate_nav)
@@ -35,7 +35,7 @@
     			})
     		})
     		
-    		this.next_button = $('<input type="button" value=">"/>').appendTo(this.translate_nav)
+    		this.next_button = $('<input type="button" class="next_bt" value=">"/>').appendTo(this.translate_nav)
             
     		this.prev_button.click(function(evt){
     			if(self._current > 0){

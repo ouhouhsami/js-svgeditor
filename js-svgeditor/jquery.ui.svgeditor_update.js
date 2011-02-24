@@ -10,6 +10,8 @@
     		this.stateOrigin
 			this.scale = 1
 			
+			var self = this;
+			
     		this.element
 			.bind('mousedown.'+this.widgetName, function(evt) {
 				return self._mouseDown(evt);
@@ -27,7 +29,7 @@
 				return self._mouseUp(evt);
 			})
 	
-    		var self = this;
+    		
     		
     		this.element.find('.shape').each(function(i){
     			//self._create_anchor($(this))
